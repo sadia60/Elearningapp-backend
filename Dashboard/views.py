@@ -2,8 +2,8 @@ from django.shortcuts import get_object_or_404
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
-from .models import Course
-from .serializers import CourseSeriailizer
+from .models import Course,Video
+from .serializers import CourseSeriailizer,VideoSeriailizer
 from django.http import Http404
 
 # Create your views here.
@@ -18,6 +18,17 @@ class CourseList(generics.ListCreateAPIView):
 class CourseDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Course.objects.all()
     serializer_class = CourseSeriailizer
+
+class VideoList(generics.ListCreateAPIView):
+    queryset = Video.objects.all()
+    serializer_class = VideoSeriailizer
+
+
+class VideoDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Video.objects.all()
+    serializer_class = VideoSeriailizer
+
+
 
 
 # class CourseList(APIView):

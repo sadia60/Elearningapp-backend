@@ -2,18 +2,17 @@
 # from django.contrib.auth.models import User
 
 from rest_framework import serializers
-from .models import Course,Video
+from .models import Mcq,Result
 
-class CourseSeriailizer(serializers.ModelSerializer):
+class McqSeriailizer(serializers.ModelSerializer):
 
     class Meta:
-        model=Course
-        fields=(
-            'auther_name','course_title','course_description','course_created_timestamp')
+        model=Mcq
+        fields='__all__'
 
-class VideoSeriailizer(serializers.ModelSerializer):
+class ResultSeriailizer(serializers.ModelSerializer):
     class Meta:
-        model=Video
+        model=Result
         fields='__all__'
 
 #
