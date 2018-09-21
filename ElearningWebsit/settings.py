@@ -42,9 +42,11 @@ INSTALLED_APPS = [
     #'markdown_deux',
    # 'pagedown',
     'rest_framework',
-
+#local apps
     'Accounts',
-     #'users',
+    'Dashboard',
+    'Quiz'
+    #'users',
 ]
 
 
@@ -64,13 +66,14 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'ElearningWebsit.urls'
 
-REST_FRAMEWORK = {
-    # Use Django's standard `django.contrib.auth` permissions,
-    # or allow read-only access for unauthenticated users.
-    'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
-    ]
-}
+# REST_FRAMEWORK = {
+#     # Use Django's standard `django.contrib.auth` permissions,
+#     # or allow read-only access for unauthenticated users.
+#     'DEFAULT_PERMISSION_CLASSES': [
+#         'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+#     ]
+# }
+
 
 TEMPLATES = [
     {

@@ -15,15 +15,27 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from rest_framework.urlpatterns import format_suffix_patterns
 from Accounts.views import loginview,register_view,logout_view
+from Dashboard.views import CourseList,CourseDetail
+#from rango import views
 
 #, register_view, logout_view)
 from django.conf.urls import include, url
+#from  import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-#    path(r'^login/', login_view, name='login'),
+#    path(r'^admin/',admin.site.urls),
+    url(r'^course/', CourseList.as_view()),
+    url(r'^courses/(?P<pk>[0-9]+)/$', CourseDetail.as_view()),
+
+   # url(r'^quiz/', QuizList.as_view()),
+    #url(r'^quizs/(?P<pk>[0-9]+)/$', QuizDetail.as_view()),
+
+    #    path(r'^login/', login_view, name='login'),
     url(r'^login/',loginview, name='login'),
     url(r'^register/', register_view, name='register'),
 
 ]
+urlpatterns=format_suffix_patterns(urlpatterns)
