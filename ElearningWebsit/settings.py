@@ -37,8 +37,20 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'Account',
+    # third party
+    'crispy_forms',
+    #'markdown_deux',
+   # 'pagedown',
+    'rest_framework',
+
+    'Accounts',
+     #'users',
 ]
+
+
+CRISPY_TEMPLATE_PACK = 'bootstrap3'
+
+#AUTH_USER_MODEL = 'Account.CustomUser'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -52,10 +64,18 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'ElearningWebsit.urls'
 
+REST_FRAMEWORK = {
+    # Use Django's standard `django.contrib.auth` permissions,
+    # or allow read-only access for unauthenticated users.
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+    ]
+}
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
